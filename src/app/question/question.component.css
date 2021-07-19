@@ -1,0 +1,23 @@
+.form-check {
+    padding: 16px 30px;
+    background-color: ghostwhite;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-check .form-check-input {
+    margin-right: 10px;
+}
+
+.form-check label {
+    flex-grow: 1;
+}
+
+.top-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

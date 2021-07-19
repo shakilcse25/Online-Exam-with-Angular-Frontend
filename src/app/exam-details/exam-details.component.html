@@ -1,0 +1,15 @@
+<div style="margin: 8px;" class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">{{exam?.title}}</h1>
+        <p style="padding: 15px 0;" class="lead" [innerHTML]="exam?.description"></p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <a *ngIf="firstQuest != null && perQuestion" type="button" [routerLink]="['/question/',exam?.id,firstQuest?.id]" class="btn btn-outline-primary btn-lg px-4">Start Exam</a>
+            <a *ngIf="firstQuest != null && !perQuestion" type="button" [routerLink]="['/questions/',exam?.id,firstQuest?.id]" class="btn btn-outline-primary btn-lg px-4">Start Exam</a>
+            <p *ngIf="firstQuest == null">Questions are not published yet.</p>
+        </div>
+        <p style="color: red;"><b>Note:</b>If you live the exam without finishing, your rest of the answers will be marked as wrong and you are not able to continue the exam.</p>
+    </div>
+    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+        <img *ngIf="exam?.img != null" class="rounded-lg-3" src="{{BACKEND_URL+ 'uploads/exam/' +exam?.img}}" alt="" width="300">
+    </div>
+</div>

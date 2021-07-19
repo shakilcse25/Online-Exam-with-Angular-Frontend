@@ -1,0 +1,36 @@
+<div class="col-md-4 offset-md-4">
+    <div class="register-form bg-light mt-4 p-4">
+        <form method="post" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+            <h4>Register Form</h4>
+            <div class="col-12">
+                <label>Name</label>
+                <input type="text" formControlName="name" class="form-control" placeholder="Name">
+                <div *ngIf="(f.name.invalid && f.name.touched) || invalid || f.name.dirty">
+                    <small *ngIf="f.name.errors?.required" class="text-danger">Name is required.</small>
+                </div>
+            </div>
+            <div class="col-12">
+                <label>Email</label>
+                <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                <div *ngIf="(f.email.invalid && f.email.touched) || invalid || f.email.dirty">
+                    <small *ngIf="f.email.errors?.required" class="text-danger">Email is required.</small>
+                    <small *ngIf="f.email.errors?.pattern" class="text-danger">Please provide a valid email address.</small>
+                </div>
+            </div>
+            <div class="col-12">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password">
+                <div *ngIf="(f.password.invalid && f.password.touched) || invalid || f.password.dirty">
+                    <small *ngIf="f.password.errors?.required" class="text-danger">Password is required.</small>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-dark float-end">Register</button>
+            </div>
+        </form>
+        <hr class="mt-4">
+        <div class="col-12">
+            <p class="text-center mb-0">Allready have a account? <a routerLink="/login">Login</a></p>
+        </div>
+    </div>
+</div>

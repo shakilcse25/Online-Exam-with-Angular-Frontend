@@ -1,0 +1,32 @@
+<h2 style="text-align: center;"> Result </h2>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">{{ examQues?.title }}</li>
+    <li class="list-group-item"> <b>Negative Marks: </b> {{ examQues?.negative }}% </li>
+    <li class="list-group-item"> <b>Total Questions: </b> {{ examQues?.questions.length }} </li>
+    <li class="list-group-item"> <b>Right Answer: </b> {{ rightAns }} </li>
+    <li class="list-group-item"> <b>Wrong Answer: </b> {{ wrongAns }} </li>
+    <li class="list-group-item"> <b>Total Marks: </b> {{ totalMarks }} </li>
+    <li class="list-group-item"> <b>Achieved Marks: </b> {{ achievedMarks }} </li>
+</ul>
+
+<div class="mycard mt-4 mb-4">
+    <div class="card" *ngFor="let quest of questions" style="margin: 16px 0;">
+        <div class="card-header">
+            <div class="ques" [innerHTML]="quest.question"></div>
+            <div style="text-align:right;">Marks: {{ quest.marks }}</div>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let opt of quest.options.options_name|options">
+                    {{ opt }}
+                    <div class="ans">
+                        <span class="badge bg-success rounded-pill" *ngIf="quest.options.right_option | isright:opt" style="margin-right: 10px;">Right answer</span>
+                        <span class="badge bg-success rounded-pill" *ngIf="quest.options.right_option | yourOptions : quest.id : opt : result" style="margin-right: 10px;">Your answer</span>
+                        <span class="badge bg-danger rounded-pill" *ngIf="quest.options.right_option | wrongOptions : quest.id : opt : result" style="margin-right: 10px;">Your answer</span>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

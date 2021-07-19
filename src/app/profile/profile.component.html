@@ -1,0 +1,22 @@
+<h2 style="text-align:center;"> Hello <b>{{ user?.name }}</b> </h2>
+<div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link active" id="v-pills-result-tab" data-bs-toggle="pill" data-bs-target="#v-pills-result" type="button" role="tab" aria-controls="v-pills-result" aria-selected="true">Result</button>
+        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+    </div>
+    <div class="tab-content" id="v-pills-tabContent" style="width:82%;">
+        <div class="tab-pane fade show active" id="v-pills-result" role="tabpanel" aria-labelledby="v-pills-result-tab">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                Your exam list so far...
+              </button>
+                <button type="button" *ngFor="let res of result" style="display:flex;" class="list-group-item list-group-item-action">{{ res?.exam?.title }}  <a href="" style="margin-left: auto;" [routerLink]="['result', res?.exam_id ]" class="btn btn-info btn-sm"> view result </a> </button>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">I will soon implement it</div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">I will soon implement it</div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">I will soon implement it</div>
+    </div>
+</div>
